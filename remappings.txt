@@ -1,0 +1,17 @@
+@uniswap/v4-core/=lib/v4-hooks-public/lib/v4-core/
+@uniswap/v4-periphery/=lib/v4-hooks-public/lib/v4-periphery/
+@uniswap/blocknumberish/=lib/v4-hooks-public/lib/blocknumberish/
+@openzeppelin/contracts/=lib/v4-hooks-public/lib/openzeppelin-contracts/contracts/
+@protocol-fees/=lib/v4-hooks-public/lib/protocol-fees/src/
+forge-std/=lib/v4-hooks-public/lib/forge-std/src/
+solmate/=lib/v4-hooks-public/lib/v4-core/lib/solmate/
+solady/=lib/v4-hooks-public/lib/solady/src/
+v4-core/=lib/v4-hooks-public/lib/v4-core/src/
+@uniswap/v3-core/=lib/v4-hooks-public/lib/v3-core/
+@uniswap/v3-periphery/=lib/v4-hooks-public/lib/v3-periphery/
+@uniswap/v2-core/contracts/=lib/v4-hooks-public/lib/v2-core/contracts/
+@pancakeswap/v3-core/=lib/v4-hooks-public/lib/pancake-v3-contracts/projects/v3-core/contracts/
+@uniswapx/=lib/v4-hooks-public/lib/uniswapx/src/
+permit2/=lib/v4-hooks-public/lib/v4-periphery/lib/permit2/
+openzeppelin-contracts/=lib/v4-hooks-public/lib/v4-periphery/lib/permit2/lib/openzeppelin-contracts/contracts/
+v4-hooks/=lib/v4-hooks-public/src/

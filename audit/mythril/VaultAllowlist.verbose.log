@@ -1,0 +1,69 @@
+~/.local/share/pipx/venvs/mythril/lib/python3.12/site-packages/eth/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+mythril.mythril.mythril_config [INFO]: Infura key not provided, so onchain access is disabled. Use --infura-id <INFURA_ID> or set it in the environment variable INFURA_ID or in the ~/.mythril/config.ini file
+mythril.support.signatures [INFO]: Using signature database at ~/.mythril/signatures.db
+mythril.laser.ethereum.svm [INFO]: LASER EVM initialized with dynamic loader: <mythril.support.loader.DynLoader object at 0x7fd2a9592c30>
+mythril.laser.ethereum.strategy.extensions.bounded_loops [INFO]: Loaded search strategy extension: Loop bounds (limit = 3)
+mythril.laser.plugin.loader [INFO]: Loading laser plugin: Default Plugin Name
+mythril.laser.plugin.loader [INFO]: Loading laser plugin: coverage
+mythril.laser.plugin.loader [INFO]: Loading laser plugin: mutation-pruner
+mythril.laser.plugin.loader [INFO]: Loading laser plugin: instruction-profiler
+mythril.laser.plugin.loader [INFO]: Loading laser plugin: call-depth-limit
+mythril.laser.plugin.loader [INFO]: Loading laser plugin: dependency-pruner
+mythril.laser.plugin.loader [INFO]: Instrumenting symbolic vm with plugin: Default Plugin Name
+mythril.laser.plugin.plugins.coverage_metrics.metrics_plugin [INFO]: Initializing coverage metrics plugin
+mythril.laser.plugin.loader [INFO]: Instrumenting symbolic vm with plugin: coverage
+mythril.laser.plugin.loader [INFO]: Instrumenting symbolic vm with plugin: mutation-pruner
+mythril.laser.plugin.loader [INFO]: Instrumenting symbolic vm with plugin: instruction-profiler
+mythril.laser.plugin.loader [INFO]: Instrumenting symbolic vm with plugin: call-depth-limit
+mythril.laser.plugin.loader [INFO]: Instrumenting symbolic vm with plugin: dependency-pruner
+mythril.laser.ethereum.svm [INFO]: Starting message call transaction to 0
+mythril.laser.ethereum.svm [INFO]: Starting message call transaction, iteration: 0, 1 initial states
+mythril.laser.plugin.plugins.coverage.coverage_plugin [INFO]: Number of new instructions covered in tx 0: 322
+mythril.laser.ethereum.svm [INFO]: Finished symbolic execution
+mythril.laser.plugin.plugins.coverage.coverage_plugin [INFO]: Achieved 67.93% coverage for code: 608060405234801561000f575f80fd5b506004361061007a575f3560e01c80638da5cb5b116100585780638da5cb5b146100a3578063babcc539146100e6578063e30c397814610118578063f2fde38b14610136575f80fd5b80634697f05d1461007e578063715018a61461009357806379ba50971461009b575b5f80fd5b61009161008c366004610432565b610149565b005b6100916101da565b6100916101ed565b5f5473ffffffffffffffffffffffffffffffffffffffff165b60405173ffffffffffffffffffffffffffffffffffffffff90911681526020015b60405180910390f35b6101086100f436600461046b565b60026020525f908152604090205460ff1681565b60405190151581526020016100dd565b60015473ffffffffffffffffffffffffffffffffffffffff166100bc565b61009161014436600461046b565b610269565b610151610318565b73ffffffffffffffffffffffffffffffffffffffff82165f8181526002602090815260409182902080547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff001685151590811790915591519182527f64568116277a405ab127801dfb21cc67088b4cc60a873855843908c9f54f01c8910160405180910390a25050565b6101e2610318565b6101eb5f61036a565b565b600154339073ffffffffffffffffffffffffffffffffffffffff16811461025d576040517f118cdaa700000000000000000000000000000000000000000000000000000000815273ffffffffffffffffffffffffffffffffffffffff821660048201526024015b60405180910390fd5b6102668161036a565b50565b610271610318565b6001805473ffffffffffffffffffffffffffffffffffffffff83167fffffffffffffffffffffffff000000000000000000000000000000000000000090911681179091556102d35f5473ffffffffffffffffffffffffffffffffffffffff1690565b73ffffffffffffffffffffffffffffffffffffffff167f38d16b8cac22d99fc7c124b9cd0de2d3fa1faef420bfe791d8c362d765e2270060405160405180910390a350565b5f5473ffffffffffffffffffffffffffffffffffffffff1633146101eb576040517f118cdaa7000000000000000000000000000000000000000000000000000000008152336004820152602401610254565b600180547fffffffffffffffffffffffff0000000000000000000000000000000000000000169055610266815f805473ffffffffffffffffffffffffffffffffffffffff8381167fffffffffffffffffffffffff0000000000000000000000000000000000000000831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b803573ffffffffffffffffffffffffffffffffffffffff8116811461042d575f80fd5b919050565b5f8060408385031215610443575f80fd5b61044c8361040a565b915060208301358015158114610460575f80fd5b809150509250929050565b5f6020828403121561047b575f80fd5b6104848261040a565b939250505056fea164736f6c634300081a000a
+mythril.laser.plugin.plugins.instruction_profiler [INFO]: Total: 3.7542147636413574 s
+[ADD         ]   0.3371 %,  nr     12,  total   0.0127 s,  avg   0.0011 s,  min   0.0009 s,  max   0.0012 s
+[AND         ]   0.3352 %,  nr     13,  total   0.0126 s,  avg   0.0010 s,  min   0.0009 s,  max   0.0012 s
+[CALLDATALOAD]  69.2649 %,  nr      5,  total   2.6004 s,  avg   0.5201 s,  min   0.5057 s,  max   0.5425 s
+[CALLDATASIZE]   0.0921 %,  nr      4,  total   0.0035 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0010 s
+[CALLER      ]   0.1727 %,  nr      7,  total   0.0065 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0011 s
+[CALLVALUE   ]   0.0265 %,  nr      1,  total   0.0010 s,  avg   0.0010 s,  min   0.0010 s,  max   0.0010 s
+[DUP1        ]   0.7840 %,  nr     33,  total   0.0294 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0012 s
+[DUP2        ]   0.4126 %,  nr     17,  total   0.0155 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0013 s
+[DUP3        ]   0.2197 %,  nr      9,  total   0.0082 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0011 s
+[DUP4        ]   0.0647 %,  nr      3,  total   0.0024 s,  avg   0.0008 s,  min   0.0008 s,  max   0.0008 s
+[DUP5        ]   0.0440 %,  nr      2,  total   0.0017 s,  avg   0.0008 s,  min   0.0008 s,  max   0.0008 s
+[DUP6        ]   0.0221 %,  nr      1,  total   0.0008 s,  avg   0.0008 s,  min   0.0008 s,  max   0.0008 s
+[EQ          ]   0.4766 %,  nr     15,  total   0.0179 s,  avg   0.0012 s,  min   0.0011 s,  max   0.0015 s
+[GT          ]   0.0302 %,  nr      1,  total   0.0011 s,  avg   0.0011 s,  min   0.0011 s,  max   0.0011 s
+[ISZERO      ]   0.2562 %,  nr      8,  total   0.0096 s,  avg   0.0012 s,  min   0.0011 s,  max   0.0016 s
+[JUMP        ]   1.1917 %,  nr     25,  total   0.0447 s,  avg   0.0018 s,  min   0.0017 s,  max   0.0022 s
+[JUMPDEST    ]   1.1894 %,  nr     47,  total   0.0447 s,  avg   0.0010 s,  min   0.0008 s,  max   0.0043 s
+[JUMPI       ]   2.0908 %,  nr     21,  total   0.0785 s,  avg   0.0037 s,  min   0.0031 s,  max   0.0047 s
+[LT          ]   0.0339 %,  nr      1,  total   0.0013 s,  avg   0.0013 s,  min   0.0013 s,  max   0.0013 s
+[MLOAD       ]   7.9238 %,  nr     14,  total   0.2975 s,  avg   0.0212 s,  min   0.0202 s,  max   0.0222 s
+[MSTORE      ]   8.6585 %,  nr     14,  total   0.3251 s,  avg   0.0232 s,  min   0.0127 s,  max   0.0295 s
+[POP         ]   0.3603 %,  nr     15,  total   0.0135 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0011 s
+[PUSH0       ]   0.4903 %,  nr     20,  total   0.0184 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0011 s
+[PUSH1       ]   1.0716 %,  nr     42,  total   0.0402 s,  avg   0.0010 s,  min   0.0008 s,  max   0.0013 s
+[PUSH2       ]   1.2801 %,  nr     53,  total   0.0481 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0012 s
+[PUSH20      ]   0.3139 %,  nr     12,  total   0.0118 s,  avg   0.0010 s,  min   0.0009 s,  max   0.0012 s
+[PUSH32      ]   0.1024 %,  nr      4,  total   0.0038 s,  avg   0.0010 s,  min   0.0009 s,  max   0.0011 s
+[PUSH4       ]   0.1940 %,  nr      8,  total   0.0073 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0010 s
+[SHA3        ]   1.0917 %,  nr      1,  total   0.0410 s,  avg   0.0410 s,  min   0.0410 s,  max   0.0410 s
+[SHR         ]   0.0306 %,  nr      1,  total   0.0011 s,  avg   0.0011 s,  min   0.0011 s,  max   0.0011 s
+[SLOAD       ]   0.1951 %,  nr      7,  total   0.0073 s,  avg   0.0010 s,  min   0.0010 s,  max   0.0011 s
+[SLT         ]   0.0887 %,  nr      3,  total   0.0033 s,  avg   0.0011 s,  min   0.0011 s,  max   0.0011 s
+[SUB         ]   0.2763 %,  nr     10,  total   0.0104 s,  avg   0.0010 s,  min   0.0009 s,  max   0.0012 s
+[SWAP1       ]   0.4013 %,  nr     17,  total   0.0151 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0010 s
+[SWAP2       ]   0.3262 %,  nr     14,  total   0.0122 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0010 s
+[SWAP3       ]   0.0951 %,  nr      4,  total   0.0036 s,  avg   0.0009 s,  min   0.0008 s,  max   0.0010 s
+[SWAP4       ]   0.0555 %,  nr      2,  total   0.0021 s,  avg   0.0010 s,  min   0.0010 s,  max   0.0011 s
+
+mythril.analysis.security [INFO]: Starting analysis
+mythril.mythril.mythril_analyzer [INFO]: Solver statistics: 
+Query count: 196 
+Solver time: 1.4536993503570557
+The analysis was completed successfully. No issues were detected.
+

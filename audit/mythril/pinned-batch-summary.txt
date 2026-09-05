@@ -1,0 +1,7 @@
+VaultAllowlist rc=1 elapsed=10s findings=3
+TwofoldToken rc=1 elapsed=2109s findings=8
+Registry rc=1 elapsed=15s findings=6
+StakingVault rc=1 elapsed=2106s findings=16
+OperatorController rc=1 elapsed=62s findings=16
+GenesisLauncher rc=1 elapsed=22s findings=19
+

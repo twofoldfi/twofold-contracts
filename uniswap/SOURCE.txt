@@ -1,0 +1,4 @@
+Verbatim copies of Uniswap/v4-hooks-public src/alf/DualPoolHook.sol and src/AllowlistedFactory.sol at commit f2aa843e266f8f9b34fdaf94ffb72eda5d9204f9.
+These are the files compiled (solc 0.8.26, via-IR, 200 runs) into the deployed hook and factory; the build uses the submodule path.
+0f4063e3e534ef2264aca25763bdca6274490f3351c43c8500f3d8069f6160fa  alf/DualPoolHook.sol
+10a28314d83b55815767a598abeef94888484f8c79626db241b1e2ab17c4b151  AllowlistedFactory.sol

@@ -1,0 +1,16 @@
+id	target	contract	mutation	initial_result	action	final_result
+M1	BadOptions (options_.length<2||>16)	PoolVoting.propose	condition forced false	KILLED	none	KILLED
+M2	BadWindow arm1 (start<block.timestamp)	PoolVoting.propose	arm forced false	KILLED	none	KILLED
+M3	BadWindow arm2 (end<=start)	PoolVoting.propose	arm forced false	KILLED	none	KILLED
+M4	NotOpen in vote (timestamp window)	PoolVoting.vote	condition forced false	KILLED	none	KILLED
+M5	Canceled in vote (p.canceled)	PoolVoting.vote	condition forced false	KILLED	none	KILLED
+M6	BadOption (option>=options.length)	PoolVoting.vote	condition forced false	KILLED	none	KILLED
+M7	NoWeight (weight==0)	PoolVoting.vote	condition forced false	KILLED	none	KILLED
+M8	re-vote subtraction (p.tally[r.option]-=r.weight)	PoolVoting.vote	statement removed	KILLED	none	KILLED
+M9	onlyOwner removed	PoolVoting.propose	modifier removed	KILLED	none	KILLED
+M10	cancel NotOpen check (block.timestamp>p.end)	PoolVoting.cancel	condition forced false	KILLED	none	KILLED
+M11	cancel Canceled check (p.canceled)	PoolVoting.cancel	condition forced false	SURVIVED	added test_cancelTwiceRevertsCanceled to test/PoolVoting.t.sol	KILLED
+M12	self-delegation body removed	VoteToken.depositFor	if-body emptied	KILLED	none	KILLED
+M13	self-delegation condition inverted	VoteToken.depositFor	== flipped to !=	KILLED	none	KILLED
+M14	propose MIN_WINDOW guard (end - start < MIN_WINDOW)	PoolVoting.propose	arm removed from BadWindow condition	KILLED	none	KILLED
+

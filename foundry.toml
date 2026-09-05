@@ -1,0 +1,78 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc_version = "0.8.26"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 44444444
+via_ir = false
+bytecode_hash = "ipfs"
+# Operator rule 2026-09-03: every contract WE deploy carries the ipfs metadata
+# hash, so new deploys can reach a full match on an explorer. The two stock
+# paths PLUS every src/ file in DualPoolHook's import closure are pinned back to
+# bytecode_hash = "None" below: they are deployed history built at "none", and
+# solc has one metadata setting per compilation unit, so a file importing the
+# hook cannot differ from it. The closure is listed file by file on purpose, so
+# a new contract is ipfs by default and never swept in by a glob.
+# UNRESOLVED, do not treat this flip as effective yet: with src/** carrying no
+# bytecode_hash of its own, foundry satisfies that restriction with the "None"
+# profile, so EVERY src/ artifact still builds at "none". Pinning src/** to
+# "Ipfs" instead is refused, because test/TwoStakingUSDG.t.sol and
+# test/ForkGenesisLauncher.t.sol each pull src/TwofoldToken.sol (closure, None)
+# into the same unit as an ipfs contract: "Found incompatible settings
+# restrictions". src/TwofoldToken.sol is the single pivot. Operator call.
+# RESOLVED 2026-09-03 (rename+hardening pass): test/TwoStakingUSDG.t.sol now
+# uses a local MockTWO instead of src/TwofoldToken.sol, so the pivot is gone for
+# that contract, and src/TwoStakingUSDG.sol carries its OWN "Ipfs" entry below.
+# The paragraph above is kept as the record of why a blanket src/** = "Ipfs"
+# still cannot be used: test/ForkGenesisLauncher.t.sol keeps GenesisLauncher
+# tied to TwofoldToken, so the glob stays unconstrained and each standalone
+# contract is opted in one entry at a time.
+
+# Upstream (lib/v4-hooks-public/foundry.toml) compiles src/alf/** (DualPoolHook
+# and its dependencies) under a dedicated [profile.alf] with via_ir = true and
+# optimizer_runs = 200 — different from its own [profile.default] used for
+# AllowlistedFactory (optimizer_runs = 44444444, via_ir = false). additional_
+# compiler_profiles + compilation_restrictions reproduce that per-path override
+# in a single profile so one `forge build` produces byte-identical bytecode for
+# both contracts — the same mechanism upstream itself uses for its
+# lib/fluid-contracts-public/** override inside [profile.alf].
+additional_compiler_profiles = [
+  { name = "alf", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { name = "ours", via_ir = true, optimizer_runs = 200, bytecode_hash = "Ipfs" },
+]
+compilation_restrictions = [
+  { paths = "lib/v4-hooks-public/src/alf/**", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { paths = "lib/v4-hooks-public/src/AllowlistedFactory.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { paths = "src/OperatorController.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { paths = "src/OperatorControllerV2.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { paths = "src/Registry.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { paths = "src/StakingVault.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { paths = "src/StakingVaultV2.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { paths = "src/TwofoldToken.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { paths = "src/VaultAllowlist.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  { paths = "src/interfaces/IDualPoolHookMinimal.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "None" },
+  # New standalone contracts get their OWN "Ipfs" entry here, one per contract:
+  # an unconstrained src/** is satisfied by the "None" profile, so a contract
+  # without its own entry silently builds at bytecode_hash = none. Their tests
+  # must not import a deployed-history contract (they land in one compilation
+  # unit, which has a single metadata setting, and the build is then refused).
+  { paths = "src/TwoStakingUSDG.sol", via_ir = true, optimizer_runs = 200, bytecode_hash = "Ipfs" },
+  { paths = "src/**", via_ir = true, optimizer_runs = 200 },
+]
+# The src/** entry pins OUR contracts to the same settings the alf path already
+# forces, so one `forge build` emits exactly ONE artifact per contract. Without
+# it foundry is free to emit two (`.default` at runs=44444444/viaIR=false and
+# `.alf` at 200/true) and it did: the unit suites linked `.default` while
+# `script/Deploy.s.sol` deployed `.alf` (recorded as `Registry.alf` etc. in
+# broadcast/Deploy.s.sol/4663/run-latest.json), and the mythril inputs were
+# `.default` too. Tests, audit and deploy were three different objects.
+# The pinned value must be viaIR/200 and cannot be anything else:
+# OperatorController imports DualPoolHook from the alf-restricted path AND
+# imports src/VaultAllowlist.sol, so every one of our contracts is reachable
+# inside the alf compilation unit. Any other value fails with "Found
+# incompatible settings restrictions".
+
+[fuzz]
+runs = 10
