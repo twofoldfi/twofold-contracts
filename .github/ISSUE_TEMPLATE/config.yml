@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a vulnerability
+    url: https://twofold.fi/.well-known/security.txt
+    about: Email security@twofold.fi. Never post a vulnerability as an issue.
+  - name: Integration questions
+    url: https://twofold.fi/docs/integrate
+    about: Routers, quoters and builders. Read this first; open an issue if it does not answer you.

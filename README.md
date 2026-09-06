@@ -151,8 +151,8 @@ The test suite is mutation-tested: guards in `src/` are broken one at a time to
 confirm a test actually dies. A passing suite that has never been seen to fail
 measures nothing.
 
-Found something? Open an issue, or reach us at
-[twofold.fi](https://twofold.fi).
+Found a bug? Open an issue with the template. Found a vulnerability? Email
+security@twofold.fi; the policy is in [SECURITY.md](SECURITY.md).
 
 ## License
 

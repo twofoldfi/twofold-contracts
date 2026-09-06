@@ -1,0 +1,44 @@
+name: Bug report
+description: Something a deployed Twofold contract did that it should not have
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a vulnerability, do not use this form. Email security@twofold.fi (see SECURITY.md).
+  - type: input
+    id: contract
+    attributes:
+      label: Contract
+      description: Name and address on Robinhood Chain (chain id 4663)
+      placeholder: Registry 0xdF1a23B1A7507Cc3B270DfA78FDD9ddA7bC36325
+    validations:
+      required: true
+  - type: input
+    id: tx
+    attributes:
+      label: Transaction hash or block
+      description: The call that showed the problem
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+      description: What the contract should have done
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual
+      description: What it did, with the revert reason or the values returned
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Calls in order, with arguments, or a fork test
+    validations:
+      required: true
